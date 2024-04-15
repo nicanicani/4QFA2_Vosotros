@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edi wow</title>
+</head>
+<body>
+    <h1>Multiplication Generator</h1>
+    <p>Enter a number between 2 and 10</p>
+    <div style="display: flex;"><input type="text" style="margin: 10px;" id="num1"><p>by</p><input type="text" style="margin: 10px;" id="num2"></div>
+    <button type="submit" style="margin: 10px;" onclick="bayot()">Click here when ready!</button>
+    <script>
+        function bayot() {
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            
+            if (num1 < 2 || num1 > 10 || num2 < 2 || num2 > 10) {
+            alert("Please enter numbers between 2 and 10");
+            return;
+            }
+
+            var table = '<table border="1"><tr><th>x</th>';
+
+            for (var i = num1; i <= num2; i++) {
+                table += '<th>' + i + '</th>';
+            }
+
+            table += '</tr>';
+
+            for (var i = num1; i <= num2; i++) {
+                table += '<tr><td>' + i + '</td>';
+
+            for (var j = num1; j <= num2; j++) {
+                 table += '<td>' + i * j + '</td>';
+            }
+
+            table += '</tr>';
+            }
+
+            table += '</table>';
+
+            document.getElementById('multiplicationTable').innerHTML = table;
+        }
+    </script>
+</body>
+</html>
